@@ -1,0 +1,6 @@
+# ------------------------------------
+# usefull alias
+# ------------------------------------
+alias c="clear && printf '\e[3J'"
+alias src='source ~/.zshrc'
+alias python=python3
