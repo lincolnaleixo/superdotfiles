@@ -23,6 +23,7 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -88,11 +89,37 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  autojump
   git
+  brew
+  osx
+  python
   zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting
+  yarn
+  web-search
 )
+
+# osx commands
+
+# Command	Description
+# tab	Open the current directory in a new tab
+# ofd	Open the current directory in a Finder window
+# pfd	Return the path of the frontmost Finder window
+# pfs	Return the current Finder selection
+# cdf	cd to the current Finder directory
+# pushdf	pushd to the current Finder directory
+# quick-look	Quick-Look a specified file
+# man-preview	Open a specified man page in Preview app
+# showfiles	Show hidden files
+# hidefiles	Hide the hidden files
+# music	Control the Music app. Use music -h for usage details
+# spotify	Control Spotify and search by artist, album, track and etc.
+
+
+# Search for "foo bar" on DuckDuckGo:
+# ddg foo bar
 
 autoload -U compinit && compinit
 
