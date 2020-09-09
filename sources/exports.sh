@@ -1,0 +1,9 @@
+# export XDG_CACHE_HOME="${DOTFILESFOLDER}/.p10kcache"
+# export P10K="$DOTFILESFOLDER/.p10k.zsh"
+# export HISTFILE="$DOTFILESFOLDER/.zhistory"
+# export PLUGINS="$DOTFILESFOLDER/plugins"
+# export ZSH="$DOTFILESFOLDER/.oh-my-zsh"
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
+export PLUGIN_SOURCES=$DOTFILES_FOLDER/"plugins"
+export LANG='en_US.UTF-8'

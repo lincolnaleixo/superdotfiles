@@ -1,0 +1,7 @@
+little snitch: https://www.obdev.at/products/littlesnitch/download.html
+Openincodedark https://github.com/sozercan/OpenInCode
+setapp https://my.setapp.com/subscription
+[setapp] Step two
+[setapp] bettertouchtool
+[setapp] forklift
+terminal themes https://github.com/lysyi3m/macos-terminal-themes
