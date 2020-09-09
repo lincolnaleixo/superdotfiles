@@ -1,38 +1,35 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export DOTFILES_FOLDER=$HOME/"Dropbox/dotfiles"
+export SOURCES=$DOTFILES_FOLDER/"sources"
+export ALIASES_FOLDER=$DOTFILES_FOLDER/"aliases"
+source $SOURCES/exports.sh
+# source $SOURCES/load_plugins.sh/
+source $ALIASES_FOLDER/load_aliases.sh
+source $SOURCES/nvm.sh
+source $SOURCES/yarn.sh
+export ZSH=$HOME/".oh-my-zsh"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="spaceship"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-# export ZSH="/Users/robot/.oh-my-zsh"
 
-export DOTFILESFOLDER="/Users/robot/Dropbox/dotfiles"
-
-source $DOTFILESFOLDER/.general.aliases
-source $DOTFILESFOLDER/.docker.aliases
-source $DOTFILESFOLDER/.servers
-
-export PLUGINS="$DOTFILESFOLDER/plugins"
-
-export ZSH="$DOTFILESFOLDER/.oh-my-zsh"
-# export _Z_DATA="$PLUGINS/.z"
-
-export P10K="$DOTFILESFOLDER/.p10k.zsh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -50,7 +47,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=13
+# export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -62,7 +59,7 @@ export UPDATE_ZSH_DAYS=13
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -84,54 +81,13 @@ ENABLE_CORRECTION="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  autojump
-  git
-  brew
-  osx
-  python
-  zsh-completions
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  yarn
-  web-search
-)
+plugins=(git)
 
-# osx commands
-
-# Command	Description
-# tab	Open the current directory in a new tab
-# ofd	Open the current directory in a Finder window
-# pfd	Return the path of the frontmost Finder window
-# pfs	Return the current Finder selection
-# cdf	cd to the current Finder directory
-# pushdf	pushd to the current Finder directory
-# quick-look	Quick-Look a specified file
-# man-preview	Open a specified man page in Preview app
-# showfiles	Show hidden files
-# hidefiles	Hide the hidden files
-# music	Control the Music app. Use music -h for usage details
-# spotify	Control Spotify and search by artist, album, track and etc.
-
-
-# Search for "foo bar" on DuckDuckGo:
-# ddg foo bar
-
-autoload -U compinit && compinit
-
-# # Servers ssh
-# source /Users/robot/Dropbox/coding/resources/dotfiles/.servers
-
-# # usefull alias
-# source /Users/robot/Dropbox/coding/resources/dotfiles/.aliases
-
-# # personal alias for apps
-# source /Users/robot/Dropbox/coding/resources/dotfiles/.docker
-
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -159,11 +115,26 @@ autoload -U compinit && compinit
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# . $PLUGINS/z.sh
+# source $ZSH/oh-my-zsh.sh
 
-
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f $P10K ]] || source $P10K
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source $ZSH/oh-my-zsh.sh
+
+
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('$HOME/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "$HOME/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "$HOME/opt/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="$HOME/opt/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+
