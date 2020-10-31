@@ -7,6 +7,7 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export DOTFILES_FOLDER=$HOME/"Dropbox/dotfiles"
+export PLUGINS_FOLDER=$DOTFILES_FOLDER/"plugins"
 export SOURCES=$DOTFILES_FOLDER/"sources"
 export ALIASES_FOLDER=$DOTFILES_FOLDER/"aliases"
 source $SOURCES/exports.sh
@@ -121,7 +122,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
+source $PLUGINS_FOLDER/"zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 
 # # >>> conda initialize >>>
 # # !! Contents within this block are managed by 'conda init' !!

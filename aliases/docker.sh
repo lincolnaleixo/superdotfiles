@@ -74,8 +74,11 @@ alias drmfi='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) && d
 # Remove all images
 # drmid() { docker rmi $(docker images -f "dangling=true" -q); }
 
-# Dockerfile stop and rm
+# Stop and delete a container
 dsr() { docker stop $1 && docker rm $1 ; }
+
+# Delete an image
+dir() { docker image rm $1 ; }
 
 # Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build --compress -t=$1 .; }
